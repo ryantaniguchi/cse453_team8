@@ -36,7 +36,7 @@ def sqlstring(user, password):
     # String value that is used as part of a Union attack
     union = "' UNION"
     # String value that is used as part of a comment attack
-    comment = "; --"
+    comment = "; --" 
     # Outputting a SQL statement based on the nature of the attacker's code
     #This if selection covers the Union attack
     if union in password:
@@ -107,6 +107,7 @@ def vulnerability_tests():
   
     print("VULT-1-B")
     output("Root", "anything' UNION SELECT * FROM passwordList")
+    print(f"\n========================================================\n")
 
     print("Tautology Attack") 
     
@@ -115,6 +116,7 @@ def vulnerability_tests():
   
     print("VULT-2-B")
     output("Root", "anything' OR 'y' = 'y")
+    print(f"\n========================================================\n")
 
     print("Comment Attack")
   
@@ -123,6 +125,7 @@ def vulnerability_tests():
   
     print("VULT-3-B")
     output("Admin'; --", "nothing")
+    print(f"\n========================================================\n")
 
     print("Additional Statement Attack")
     print("VULT-4-A")
@@ -159,7 +162,7 @@ def menu():
           userN = input("Please enter your username: ")
           #Entering in password
           password = input("Please enter your password: ")
-          #passing username and password variables to the output which will run a check on kind of possible           attack maybe occuring
+          #passing username and password variables to the output which will run a check on kind of possible attack maybe occuring
           output(userN,password)
         # Exits program
         elif userinput =="4":
