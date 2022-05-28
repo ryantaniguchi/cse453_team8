@@ -37,8 +37,6 @@ def sqlstring(user, password):
     union = "' UNION"
     # String value that is used as part of a comment attack
     comment = "; --"
-    # Formatting the output if the user uses characters that are a attack parameter 
-    password = password.replace('UNION ', '\nUNION ').replace('FROM ', '\n     FROM ').replace('WHERE ', '\n     WHERE ').replace(';', ';\n')
     # Outputting a SQL statement based on the nature of the attacker's code
     #This if selection covers the Union attack
     if union in password:
@@ -131,7 +129,7 @@ def vulnerability_tests():
     output("Root", "nothing'; INSERT INTO passwordList (name, passwd) VALUES 'Bob', '1234")
   
     print("VULT-4-B")
-    output("Admin", "anything'; DROP TABLE xyz")
+    output("Admin", "anything'; INSERT INTO passwordList (name, passwd) VALUES 'Alice', '3467")
 
 
 # Main menu that comes up at the start of the program
